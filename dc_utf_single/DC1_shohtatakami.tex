@@ -1,0 +1,310 @@
+%\documentclass[11pt,a4paper,uplatex,dvipdfmx]{ujarticle} 		% for uplatex
+\documentclass[11pt,a4j,dvipdfmx]{jarticle} 					% for platex
+\input{pieces/form00_header} % pieces
+\input{pieces/kakenhi7} % pieces
+\input{pieces/form01_dcpd_header} % pieces
+\input{pieces/hook3} % pieces
+%#Name: dcs
+\input{pieces/form03_dcpd_headers} % pieces
+\input{pieces/form04_dc_header} % pieces
+% ===== Global definitions for the Kakenhi form ======================
+%　基本情報
+%
+%------ 研究課題名  -------------------------------------------
+\newcommand{\研究課題名}{ミューオン電子転換探索の感度向上に向けた解析手法の開発}
+
+%----- 研究機関名と研究代表者の氏名-----------------------
+\newcommand{\研究機関名}{大阪大学}
+\newcommand{\研究代表者氏名}{高見 翔太   }
+\newcommand{\me}{\underline{\underline{Shohta~Takami}}} 
+\input{pieces/inst_general_images} % pieces
+% user07_header
+% ===== my favorite packages ====================================
+% ここに、自分の使いたいパッケージを宣言して下さい。
+\usepackage{wrapfig}
+\usepackage{amssymb}
+%\usepackage{mb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{enumitem}
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{lineno}
+
+% ===== my personal definitions ==================================
+% ここに、自分のよく使う記号などを定義して下さい。
+\renewcommand{\refname}{}%リファレンスの頭に「参考文献」っていうタイトルつけない
+\newcommand{\klpionn}{K_L \to \pi^0 \nu \overline{\nu}}
+\newcommand{\kppipnn}{K^+ \to \pi^+ \nu \overline{\nu}}
+%\newcommand{\mysection}[2]{\hspace{-12pt}\colorbox[gray]{0.8}{\normalsize{\textbf{\ctext{#1}#2}}}\\}
+\newcommand{\mysection}[2]{\hspace{-12pt}\colorbox{cyan!15}{\normalsize{\textbf{\ctext{#1}#2}}}\\}
+\newcommand{\mysubsection}[1]{\vspace{-20pt}\subsection*{\colorbox{cyan!15}{\normalsize{#1}}}\vspace{-0.2cm}}
+% ----- 業績リスト用 -------------
+\newcommand{\paper}[6]{%
+	% paper{title}{authors}{journal}{vol}{pages}{year}
+	\item ``#1'', #2, #3 {\bf #4}, #5 (#6).			% お好みに合わせて変えてください。
+}
+
+\newcommand{\etal}{\textit{et al.\ }}
+\newcommand{\ca}[1]{*#1}	% corresponding author;   \ca{\yukawa}  みたいにして使う
+\newcommand{\invitedtalk}{招待講演}
+
+\newcommand{\yukawa}{H.~Yukawa}					% no underline
+%\newcommand{\yukawa}{\underline{\underline{H.~Yukawa}}}	% with 2 underlines
+\newcommand{\tomonaga}{S.~Tomonaga}
+
+\newcommand{\prl}{Phys.\ Rev.\ Lett.\ }		% よく使う雑誌も定義すると楽
+
+% ===== 欄外メモ ==================
+\newcommand{\memo}[1]{\marginpar{#1}}
+%\renewcommand{\memo}[1]{}	% 全てのメモを表示させないようにするには、行頭の"%"を消す
+
+%\input{../../sample/simple/contents}	% skip
+\input{pieces/hook5} % pieces
+
+\begin{document}
+
+\input{pieces/hook7} % pieces
+%#Split: 01_background  
+%#PieceName: p01_background
+\input{pieces/p01_background_00}
+\section{研究の概要と位置づけ}
+%　　　　＜＜最大　1ページ＞＞
+
+%s03_abst_background
+\noindent
+\underline{\textbf{研究課題名：\研究課題名}}
+
+%begin 研究目的や背景などの概要 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+\vspace{0.1cm}
+\mysubsection{概要}
+%end 研究目的や背景などの概要 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+%begin 本研究の着想に至った経緯など ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+素粒子物理学における標準模型は、物質の最小構成要素である\textbf{素粒子}における基本的な相互作用を記述する理論である。
+この理論は未だ十分に自然界を記述することはできず、新理論の発見が待ち望まれている。
+本研究で探索する\textbf{荷電レプトンフレーバー非保存過程}(以下、charged Lepton Flavor Violation:cLFV)は
+標準模型では崩壊分岐比が$10^{-54}$以下と非常に強く抑制されている。
+一方、多くの新理論内ではこの過程が$10^{-15}$程度の確率で観測可能と示唆されている。
+従って、cLFVの発見は標準模型の寄与がなく、\textbf{新物理の直接的な証拠}となる。
+COMET実験ではミューオン電子転換過程($\mu^- + N \rightarrow e^- + N$)と呼ばれるcLFVの一種を探索する。
+COMET実験では現状のミューオン電子転換過程に対する世界最高感度を二桁ほど更新することが期待されている。
+\mysubsection{研究の位置付け}
+\noindent \textbf{【当該分野の状況】}\\
+ミューオン電子転換探索の世界最高感度は、先行実験のSINDRUM-I\hspace{-1.2pt}Iでの$7 \times 10^{-13}$であり、発見には至らなかった$^{\cite{SINDRUM}}$。
+この測定では連続的なビームを使用したため、ビーム由来の背景事象が常に存在し、ビー
+\begin{wrapfigure}[9]{r}{190pt}{}
+	\centering
+	 \vspace{-0.5cm}
+	 \hspace*{-15pt}
+	 \includegraphics[width=8cm]{figs/beam}
+	 \vspace{-1.2cm}
+	 \caption{\small{ビームの時間構造}}
+	 \label{Fig:beam}
+	\end{wrapfigure} 
+ム強度に対する探索感度に制限があった。
+そこでCOMET実験では、パルス状のビームを使用することと標的にアルミニウムを使用することで背景事象の問題を克服する。
+ビームのパルス間隔$1.17\;\rm{\mu s}$に対し、原子中のミューオン寿命が$0.86\;\rm{\mu s}$と長いアルミニウムをミューオン静止標的に採用し、陽子ビームのバンチタイミングから遅れてトリガーをかける。
+これにより、ビーム由来のバックグラウンドが大幅に低減する。
+同様の実験として米国Fermi研究所にて建設中のMu2e実験$^{\cite{Mu2e}}$があるが、COMET実験が先行して、世界最高感度に到達する計画である。\\
+\noindent \textbf{【本研究の着想に至った経緯】}\\
+COMET実験における背景事象にはビーム由来のもの以外に、原子軌道上におけるミューオンの三体崩壊(Decay In Orbit:DIO)による電子があげられる。
+そこで検出された電子の運動量を用いて、DIOによる電子とミューオン電子転換による電子を見分ける。
+ミューオンビームのアルミニウム標的への照射は$1\;\rm{T}$のソレノイド磁場内で行う。
+そのため、荷電粒子が磁場中で螺旋運動する性質を用いて、運動量を測定することができる。
+具体的にはガス飛跡検出器(Cylindrical Drift Chamber:CDC)による電子の飛跡の曲率と磁場の値よりその運動量を測定することができる。
+そこで、CDCで検出された背景事象を含むヒットのうち信号電子の飛跡を見つけるアルゴリズムの開発が必要不可欠であり、DIOによる信号と分離するためには\textbf{$\mathbf{200\;\rm{keV/c}}$の運動量分解能}が要求されている。\\
+　COMET実験は2026年に全ての装置のインストールが完了し、同年末には低強度ビームでの物理測定を開始し、2028年にはいよいよCOMET Phase-Iが開始する予定である。
+従って2026年以降にはCDCの運動量較正や上述の物理解析手法の確立を行うことが優先順位の極めて高い項目である。
+そこで、申請者の修士課程における\textbf{磁場分布に関する経験}やトラッキングアルゴリズムに対する理解を活かし、\textbf{世界最高感度でのミューオン電子転換過程探索}を実現する。
+
+%\vspace{1cm}
+\small
+\begin{thebibliography}{99}
+	\bibitem{SINDRUM} SINDRUM-II Collaboration, Eur. Phys. J.C47 337-346 (2006)
+	\bibitem{Mu2e}Mu2e Collaboration, Universe, 9, 54. (2023) 
+\end{thebibliography}
+%\begin{wrapfigure}[9]{r}{190pt}{}
+%	\centering
+%	 \vspace{-1.1cm}
+%	 \hspace*{-15pt}
+%	 \includegraphics[width=7cm]{figs/momentum.png}
+%	 \vspace{-1.2cm}
+%	 \caption{\small{運動量分布}}
+%	 \label{Fig:beam}
+%	\end{wrapfigure} 
+
+
+
+
+
+
+
+
+
+%end 本研究の着想に至った経緯など ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+\input{pieces/p01_background_01}
+
+%#Split: 02_purpose_plan  
+%#PieceName: p02_purpose_plan
+\input{pieces/p02_purpose_plan_00}
+\section{【２】研究計画（２）研究目的・内容等}
+%　　　　＜＜最大　2ページ＞＞
+\mysubsection{1.研究目的、研究方法、研究内容}
+本研究の目的はミューオン電子転換過程を世界最高感度で探索し、標準模型を破る新物理を実験的に観測することである。
+そのため、茨城県の大強度陽子ビーム施設J-PARCで計画している\textbf{COMET実験}で測定および物理解析を主導する。\\
+\begin{wrapfigure}[12]{r}{190pt}{}
+	\centering
+	 \vspace{-1.2cm}
+	 \hspace*{-15pt}
+	 \includegraphics[width=7cm]{figs/momentum.png}
+	 \vspace{-1.0cm}
+	 \caption{\small{信号電子の運動量分布}}
+	 \label{Fig:momentum}
+	\end{wrapfigure} 
+　アルミニウム原子核に捕獲されたミューオンのミューオン電子転換によって生成される信号電子の運動量はミューオンの質量から原子核の束縛エネルギーと反跳エネルギーを引いた$\mathbf{105\;\rm{MeV/c}}$である。
+一方、背景事象である原始軌道上でのミューオンの崩壊(DIO)は三体崩壊であるため、ミューオン電子転換過程よりも小さい運動量になる。
+そこで検出器全体をソレノイド磁場内に設置し、粒子の飛跡より求められる\textbf{電子の螺旋運動の曲率}を用いて信号電子の運動量を測定する。
+飛跡検出にはガス検出器(CDC)を用い、CDCのデータ取得のトリガーにはシンチレーター検出器CTHを用いる。
+図\ref{Fig:momentum}のようにDIO電子と信号電子のスペクトルを分離するには$\mathbf{200\;\rm{keV/c}}$\textbf{の運動量分解能}がCDCには要求されている。\\
+%COMET実験は2026年末から低強度ビームでの物理測定、2028年には150日間のビーム運転期間での物理データ測定が予定されている。
+%まず、低強度ビームでの物理測定前に、通常のミューオンの崩壊(Mitchel Edge)や$\pi$の$e$への崩壊など標準模型内での電子への崩壊時過程を用いて、検出器の運動量較正を行う。
+　信号電子が検出器内で複数周回転するmultiple turn tracksが現在物理解析において問題視されている。その理由は三つあり、第一に、複数周CDCにヒットを残すため、周回ごとにヒットを区別する必要があり、トラッキング精度が悪くなってしまう。
+第二に、CDCでのヒットが多い分、失う運動量も大きくなり、DIOとの区別が難しくなる。
+第三に、周回が多い分、無関係なノイズを拾いやすい。
+結果的に検出器内で一周しかしないsingle turn tracksのアクセプタンスは$11\;\rm{\%}$であるのに対し、multiple turn tracksでは$7.2\;\rm{\%}$になる。
+つまり、multiple turn trackを判別できないと、最悪の場合COMET実験で期待できる\textbf{最高感度の2/3}ほどしか達成できない可能性がある。
+そこで、multiple turn tracksを判別できる解析法を開発し、\mbox{SINDRUM-I\hspace{-1.2pt}I$^{\cite{SINDRUM}}$}の感度を100倍更新する$\mathbf{3.0 \times 10^{-15}}$での\textbf{ミューオン電子転換過程探索}を実現する。\\
+\vspace{-0.5cm}
+\mysubsection{2.研究計画}
+
+\noindent \textbf{【磁場分布の運動量スペクトルへの寄与の評価(採用まで)】}\\
+　信号電子の運動量測定には磁場分布の情報が必要不可欠である。
+申請者は修士課程ではCOMET Phase-Iにおける検出器ソレノイド(Detector Solenoid:DS)の磁場測定に携わっており、物理ランを行う時のセットアップと同じ本番環境における磁場測定システムの設計には
+運動量分解能$\mathbf{200\;\rm{keV/c}}$を達成するために磁場測定の精度の要求値を決定する必要がある。
+そのために、磁場測定の精度の情報をCOMET実験グループ内で独自に開発されたICEDUST$^{\cite{ICEDUST}}$というGeant4ベースのフレームワークを用いて、シミュレーションを行い、要求されている運動量分解能を満たす磁場測定精度を決定する。
+\\
+\textbf{【本番環境での磁場測定(採用まで)】}\\
+2025年に行われるDSおよび各種検出器のインストールを主導し、実験開始の準備を着実に進める。
+同時に、上述で決定した磁場測定精度を満たす磁場測定システムを開発し、インストール後の2025年末に予定されている本番環境での磁場測定を行う。
+申請者が修士課程１年時に行ったDSの健全性確認のための磁場測定試験で得られたフィードバックを活かし、システマティックな誤差や揺らぎを最小限に抑えた測定システムを開発する。
+ここで測定されたデータはのちのトラッキングアルゴリズムに活用されるため、非常に重要である。
+\\
+\textbf{【CDCの運動量較正および宇宙線Run(1年目)】}\\
+最初に宇宙線を用いた検出器のテスト測定を行う。
+この測定では、$2\;\rm{GeV}$程度の信号電子やDIO電子と比べて大きなエネルギーを持つ宇宙線の直線的な飛跡が設計通りの位置分解能で再構成できることを確認する。
+これにより、トラッキング性能だけでなく、CTHによるトリガーが機能していること設計通りにデータ取得ができていることも同時に確認できる。
+この測定ではハード、ソフト両面での様々なエラーが発生することが予想され、それらエラーの原因特定およびデバッグ作業を献身的に行う。
+宇宙線でのテスト測定に成功した後は、$\pi$から$e$へのビーム即発背景事象(運動量$70\;\rm{MeV/c}$)と標準模型内でのミューオンの電子への崩壊(運動量$52.5\;\rm{MeV/c}$)を用いて、検出器の運動量較正を行う。
+\\
+\textbf{【低強度ビームでの物理測定およびトラッキングアルゴリズム開発(2年目)】}\\
+2026年末にCOMET Phase-Iの1/10の強度でビーム供給を行い、物理測定を行う。
+現在COMET実験では、検出器内で複数周螺旋運動をするmultiple turn tracksによるアクセプタンスの低下が問題視されている。
+実際に電子の螺旋運動を用いて運動量測定を行うMEG実験でもこの事象は問題視されており、周回を判別できるようになったことで約$4\;{\%}$検出効率がアップしたことが報告されている。
+ただ。実験セットアップが異なるため、COMET実験でも同じ方法を踏襲することはできず、COMET実験独自のアルゴリズムの開発が要求されている。
+実際のソレノイド磁場は鉄ヨークに格納されていても完全に一様ではない。％％（私の稚拙な考えかもしれませんが自分なりに考えてみました。）
+その非一様性を利用して、multiple turn tracksの各周回の分離が可能なアルゴリズムを開発する。
+\\
+\textbf{【Phase-I測定および物理データ解析(3年目)】}\\
+2028年には予定強度のビームでCOMET Phase-Iの測定が開始する。
+２年目までに深めた検出器への理解を元にこの測定を主導する。
+２年目に開発したトラッキングアルゴリズムで実際に得られた物理データの解析を行い、飛跡の再構成の効率やアクセプタンスなどアルゴリズムの性能を評価する。
+このトラッキングアルゴリズムのブラッシュアップを行うことで世界最高感度でのミューオン電子転換過程探索を実現し、新物理の発見に貢献する。
+
+\mysubsection{3.研究の特色、独創的な点}
+先行実験の SINDRUM-I\hspace{-1.2pt}I$^{\cite{SINDRUM}}$は連続的なDCビームを使用していたことでビームの強度に対して探索可能な感度に制限があった。
+一方、COMETでは世界最高強度のパルスミューオンビームを用い、かつ高い背景事象除去率を持つトリガーシステムを用いることで100倍感度を改善できる。
+また、COMETは本研究におけるPhase-Iからアップグレードを見据えており、さらに100倍感度を更新して、現在の上限値の$10^4$倍の感度で探索を行う予定である。
+また、関連実験として同じミューオンcLFVである$\mu \rightarrow e + \gamma$を探索するMEG実験$^{\cite{MEG}}$がある。ガンマを放出するか否かの分岐比は理論依存が大きいため、本
+研究の結果と組み合わせることで、より詳細な新物理の検証が可能となる。従って、理論分野からもCOMETの結果は期待されている\\
+\mysubsection{4.申請者が担当する部分}
+aaaa
+\mysubsection{5.異なる研究機関での研究従事}
+\small
+\begin{thebibliography}{99}
+	\bibitem{SINDRUM} SINDRUM-II Collaboration, Eur. Phys. J.C47 337-346 (2006)
+	\bibitem{ICEDUST}
+  R. Derveni, 
+  \emph{Comparative analyses of sub-GeV physics in simulations and data for the COMET experiment},  
+  Ph.D. thesis, Imperial College London, April 2024.  
+  %\href{https://doi.org/10.25560/116399}
+	{doi:10.25560/116399}
+	\bibitem{MEG}
+	A.~M.~Baldini \textit{et al.}, ``Search for the lepton flavour violating decay $\mu^+ \to e^+ \gamma$ with the full dataset of the MEG experiment,'' \textit{European Physical Journal C}, vol.~76, no.~8, p.~434, 2016. 
+	%\doi{10.1140/epjc/s10052-016-4271-x}
+\end{thebibliography}
+%s02_purpose_plan_dcpd
+%\JSPSInstructions		% <-- 留意事項。これは消すか、コメントアウトしてください。
+%begin 研究目的と研究計画shorter ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+%\textbf{\\　　　　　＊＊＊　以下は、あくまで例です。真似しないでください。　＊＊＊\\
+%　　　　　＊＊＊　本文はもちろん、節の切り方や論理の組み方は　　　＊＊＊\\
+%　　　　　＊＊＊　ご自分の気に入ったスタイルで書いてください。　　＊＊＊}
+
+
+%end 研究目的と研究計画shorter ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+\input{pieces/p02_purpose_plan_01}
+
+%#Split: 03_rights  
+%#PieceName: p03_rights
+\input{pieces/p03_rights_00}
+\section{人権の保護及び法令等の遵守への対応}
+%　　　　＜＜最大　1ページ＞＞
+
+% s09_rights
+%begin 人権の保護及び法令等の遵守への対応 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+該当なし
+	%象の卵のES細胞の培養、象のクローンの生成などは行わない。
+%
+	%\LaTeX の便利な機能については、\texttt{egg\_***.tex} や\texttt{sample\_pdf/egg\_***.pdf}をご覧ください。
+%end 人権の保護及び法令等の遵守への対応 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+\input{pieces/p03_rights_01}
+
+%#Split: 04_abilities  
+%#PieceName: p04_abilities
+\input{pieces/p04_abilities_00}
+\section{【４】研究遂行力の自己分析}
+%　　　　＜＜最大　2ページ＞＞
+
+% s14_abilities
+%\SelfReviewInstructions\\% <-- 留意事項：これは消すか、コメントアウトしてください。
+\noindent
+\textbf{(1) 研究に関する自身の強み}\\
+\vspace{-0.5cm}
+\mysubsection{コミュニケーション力}
+申請者の強みは日英を問わないコミュニケーション力である。
+COMET配属前の学部4年生の頃に参加した会議では、初対面の研究者らにも積極的に話しかけ、配属前から名前を覚えてもらうなど、良好な関係を築くことができた。
+以降もCOMETの活動を通じて、共同研究者と積極的に交流・議論を重ね、COMET内における学術的・人的ネットワークの広がりと深化に貢献している。
+多くの研究者が協力して一つの実験を遂行するには、良好な人間関係と円滑な意思疎通を基盤とした組織風土が不可欠であり、申請者の人間性とコミュニケーション能力は、そのような環境の持続的な醸成において大きな役割を果たすと考えている。\\
+加えて、申請者の強みは上述のコミュニケーションを英語でも行うことができる点である。
+COMETは国際コラボレーションであるため、英語での積極的なコミュニケーションが求められる。
+各種会議での対面のコミュニケーションに加え、
+申請者は、トラッキングのソフトウェアに関して学習するために中心となっている中国のグループと積極的に交流している。
+自分の理解を深めるだけでなく、トラッキングソフトウェアグループ
+%また、COMET以外でも積極的に学術交流を行なっており、KEK\footnote{高エネルギー加速器研究機構}主催の春の学校という若手研究者の集まりでは
+%\PapersInstructions\\ %<-- 留意事項：これは消すか、コメントアウトしてください。
+%begin 自己分析 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	
+	%\begin{enumerate}
+	%	
+	%	% 下のように書いてもいいけど、めんどくさいし、表示の仕方を変えようとしたら大変。
+	%	\item ``Egg of Elephant-Bird'', 
+	%			\underline{A.~Cooper},
+	%			Nature, {\bf 409}, 704-707 (2001).	% 	
+	%	\input{jack_pub}	% << only for demonstration. Please delete it or comment it out.
+	%\end{enumerate}
+%end 自己分析 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+\vspace{5mm}
+\noindent
+\textbf{(2) 今後研究者として更なる発展のため必要と考えている要素}\\
+%begin 今後必要な要素 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+研究費を獲得する術。
+%end 今後必要な要素 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+\input{pieces/p04_abilities_01}
+
+%#Split: 99_tail
+\input{pieces/hook9} % pieces
+\end{document}
+
